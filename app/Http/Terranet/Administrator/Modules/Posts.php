@@ -19,6 +19,8 @@ use Terranet\Administrator\Collection\Mutable as MutableCollection;
 use Terranet\Administrator\Field\HasOne;
 use Terranet\Administrator\Field\HasMany;
 use Terranet\Administrator\Field\Enum;
+use Terranet\Administrator\Filters\Scope;
+use App\Post;
 
 /**
  * Administrator Resource Posts
@@ -89,6 +91,23 @@ class Posts extends Scaffolding implements Navigable, Filtrable, Editable, Valid
     public function canDelete()
     {
         return false;
+    }
+
+    public function scopes()
+    {
+        return $this->scaffoldScopes()
+            ->push(
+                (new Scope('with comments'))
+                    ->setQuery(function ($query) {
+                        return Post::has('comments');
+                    })
+            )
+            ->push(
+                (new Scope('without comments'))
+                    ->setQuery(function ($query) {
+                        return Post::doesntHave('comments');
+                    })
+            );
     }
 
 

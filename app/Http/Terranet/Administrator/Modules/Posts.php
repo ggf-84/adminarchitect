@@ -108,6 +108,6 @@ class Posts extends Scaffolding implements Navigable, Filtrable, Editable, Valid
 
     public function perPage()
     {
-        return 4;
+        return 15;
     }
 }

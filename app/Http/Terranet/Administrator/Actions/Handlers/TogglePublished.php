@@ -46,7 +46,6 @@ class TogglePublished
      */
     public function authorize(User $user, Eloquent $entity)
     {
-        # let's say: only super admins or post owners can toggle posts's active status.
-        return  $user->id == $entity->user_id;
+        return  true; //$user->isSuperAdmin() || $user->id == $entity->user_id;
     }
 }

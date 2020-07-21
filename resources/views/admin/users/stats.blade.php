@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="pull-right">
-            <a href="{{url('cms', ['module', 'post_id'])}}}">View Posts</a>
+            <a href="{{ url('cms', ['module' => 'posts']) }}?viaResource=user&viaResourceId={{$user->id}}">View Posts</a>
         </div>
         <div class="clearfix"></div>
 

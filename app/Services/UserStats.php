@@ -2,9 +2,8 @@
 namespace App\Services;
 
 use Terranet\Administrator\Contracts\Services\Widgetable;
-use Terranet\Administrator\Services\Widgets\AbstractWidget;
 
-class UserStats extends AbstractWidget implements Widgetable
+class UserStats implements Widgetable
 {
     protected $user;
 

@@ -29,13 +29,17 @@ class Users extends CoreUsersModule
             ->push(HasMany::make( 'posts')->sortable(null));
     }
 
-//    public function viewColumns(): MutableCollection
-//    {
-//        $user = app('scaffold.model');
-//
-//        return $this->scaffoldColumns()
-//            ->push(new UserStats($user));
-//    }
+    public function viewColumns(): MutableCollection
+    {
+        return $this->scaffoldColumns()
+            ->push(HasMany::make( 'posts statistic', 'posts'), function($element){
+                $element->renderAs(function ($user) {
+                    $stats = new UserStats($user);
+                    return $stats->render();
+                });
+                return $element;
+            });
+    }
 
 //    public function widgets()
 //    {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Terranet\Administrator\Modules;
 
+use App\Traits\Columns\UsersColumns;
+use App\User;
 use Terranet\Administrator\Collection\Mutable as MutableCollection;
 use Terranet\Administrator\Field\HasMany;
 use Terranet\Administrator\Modules\Users as CoreUsersModule;
@@ -12,6 +14,7 @@ use App\Services\UserStats;
  */
 class Users extends CoreUsersModule
 {
+    use UsersColumns;
 
     public function linkAttributes()
     {

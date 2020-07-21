@@ -50,7 +50,7 @@ class Posts extends Scaffolding implements Navigable, Filtrable, Editable, Valid
         return $this
             ->scaffoldColumns()
             ->except(['user_id', 'published'])
-            ->push(HasOne::make('user'))
+            ->push(HasOne::make('user')->except(['birth_date', 'gender', 'active','phone','role']))
             ->push(HasMany::make( 'comments')->sortable(null));
     }
 

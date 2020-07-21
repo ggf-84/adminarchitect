@@ -40,7 +40,7 @@ class Comments extends Scaffolding implements Navigable, Filtrable, Editable, Va
         return $this
             ->scaffoldColumns()
             ->except(['user_id', 'post_id'])
-            ->push(HasOne::make('user'))
+            ->push(HasOne::make('user')->except(['birth_date', 'gender', 'active','phone','role']))
             ->push(HasOne::make('post')->except(['user_id']));
     }
 

@@ -4,8 +4,8 @@ return [
     // URL Prefix
     'prefix' => $prefix = 'cms',
 
-    'title' => '<b>Admin</b> Architect',
-    'abbreviation' => 'AA',
+    'title' => '<b>Admin</b> Panel',
+    'abbreviation' => 'AP',
     'welcome' => 'Welcome! Please sign In.',
 
     // Authentication options
